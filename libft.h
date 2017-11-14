@@ -6,7 +6,7 @@
 /*   By: pnardozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 16:07:14 by pnardozi          #+#    #+#             */
-/*   Updated: 2017/11/13 12:47:33 by pnardozi         ###   ########.fr       */
+/*   Updated: 2017/11/14 15:38:16 by pnardozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_iswp(char c);
 int					ft_countword(char const *s, char c);
-int					*ft_countsizeword(char const *s, char c);
+void				ft_countsizeword(char const *s, char c, int *tab);
 long				ft_nbdigit(long n);
 void				ft_sort_int_tab(int *tab, int size);
 void				ft_print_word_tab(char **tab);

@@ -6,13 +6,13 @@
 /*   By: pnardozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 14:02:31 by pnardozi          #+#    #+#             */
-/*   Updated: 2017/11/13 14:25:42 by pnardozi         ###   ########.fr       */
+/*   Updated: 2017/11/14 15:19:36 by pnardozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_duplicate(const char *s, char **tab, char c)
+static void	ft_duplicate(char const *str, char **tab, int c)
 {
 	int		i;
 	int		j;
@@ -21,16 +21,16 @@ static void	ft_duplicate(const char *s, char **tab, char c)
 	i = 0;
 	j = 0;
 	k = 0;
-	while (s[i])
+	while (str[i] != '\0')
 	{
-		if (s[i] != c && s[i] != '\0')
+		if (str[i] != c)
 		{
-			tab[j][k] = s[i];
+			tab[j][k] = str[i];
 			k++;
 		}
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+		if (str[i] != c && (str[i + 1] == c || str[i + 1] == '\0'))
 		{
-			tab[j][k] = s[i];
+			tab[j][k] = str[i];
 			tab[j][k++] = '\0';
 			j++;
 			k = 0;
@@ -42,27 +42,26 @@ static void	ft_duplicate(const char *s, char **tab, char c)
 
 char		**ft_strsplit(char const *s, char c)
 {
+	int		nb_word;
+	int		*size_word;
 	char	**tab;
-	int		*tab_sizeword;
 	int		i;
 
-	if (s)
+	i = 0;
+	nb_word = ft_countword(s, c);
+	if (!(size_word = malloc(sizeof(int) * (nb_word + 1))))
+		return (NULL);
+	ft_countsizeword(s, c, size_word);
+	if (!(tab = malloc(sizeof(char *) * (nb_word + 1))))
+		return (NULL);
+	while (i < nb_word)
 	{
-		i = 0;
-		if (!(tab = (char**)malloc(sizeof(char*) * (ft_countword(s, c) + 1))))
+		if (!(tab[i] = malloc(sizeof(char) * (size_word[i] + 1))))
 			return (NULL);
-		if (!(tab_sizeword = ft_memalloc(ft_countword(s, c))))
-			return (NULL);
-		tab_sizeword = ft_countsizeword(s, c);
-		while (i < ft_countword(s, c))
-		{
-			if (!(tab[i] = ft_strnew(tab_sizeword[i])))
-				return (NULL);
-			i++;
-		}
-		ft_duplicate(s, tab, c);
-		free(tab_sizeword);
-		return (tab);
+		i++;
 	}
-	return (NULL);
+	free(size_word);
+	if (s)
+		ft_duplicate(s, tab, c);
+	return (tab);
 }
