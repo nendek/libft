@@ -6,7 +6,7 @@
 #    By: pnardozi <pnardozi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/12 20:45:39 by pnardozi          #+#    #+#              #
-#    Updated: 2017/11/14 15:38:49 by pnardozi         ###   ########.fr        #
+#    Updated: 2017/11/22 16:15:08 by arobion          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,18 +87,19 @@ END = \033[0m
 
 all : $(NAME)
 
-$(NAME): 
-	$(CC) $(CFLAGS) $(SRC)	
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 	@echo "$(GREEN)LIBFT READY$(END)"
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm -f $(OBJ)
-	@echo "$(RED)OBJECTS REMOVE$(END)"
+	/bin/rm -f $(OBJ)
+	@echo "$(RED)LIBFT OBJECTS REMOVE$(END)"
 
 fclean: clean
-	rm -f $(NAME)
+	/bin/rm -f $(NAME)
 	@echo "$(RED)LIBFT.A REMOVE$(END)"
 
 re: fclean all
