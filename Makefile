@@ -6,7 +6,7 @@
 #    By: pnardozi <pnardozi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/12 20:45:39 by pnardozi          #+#    #+#              #
-#    Updated: 2017/12/15 11:25:04 by pnardozi         ###   ########.fr        #
+#    Updated: 2017/12/15 11:47:56 by pnardozi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,16 @@ CFLAGS = -c -Wall -Werror -Wextra
 NAME = libft.a
 
 SRC = ft_atoi.c \
+	  ft_wputchar.c \
+	  ft_unsigned_itoa.c \
+	  ft_strcap.c \
+	  ft_puttab.c \
+	  ft_putlong.c \
+	  ft_long_atoi.c \
+	  ft_long_itoa.c \
+	  ft_decim.c \
+	  ft_ctoi.c \
+	  ft_count_unsigned_var.c \
 	  get_next_line_multi.c \
 	  ft_bzero.c \
 	  ft_countsizeword.c \
