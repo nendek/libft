@@ -6,7 +6,7 @@
 #    By: pnardozi <pnardozi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/12 20:45:39 by pnardozi          #+#    #+#              #
-#    Updated: 2017/11/22 16:15:08 by arobion          ###   ########.fr        #
+#    Updated: 2017/12/15 11:25:04 by pnardozi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -c -Wall -Werror -Wextra
 NAME = libft.a
 
 SRC = ft_atoi.c \
+	  get_next_line_multi.c \
 	  ft_bzero.c \
 	  ft_countsizeword.c \
 	  ft_countword.c \
