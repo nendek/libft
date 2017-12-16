@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strdupw.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnardozi <pnardozi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 13:40:50 by pnardozi          #+#    #+#             */
-/*   Updated: 2017/12/15 11:24:14 by pnardozi         ###   ########.fr       */
+/*   Created: 2017/12/15 14:05:12 by pnardozi          #+#    #+#             */
+/*   Updated: 2017/12/15 14:07:16 by pnardozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# define BUFF_SIZE 32
-# include "libft.h"
-
-#
-
-typedef	struct		s_gnl
+int		*ft_strdupw(int *str)
 {
-	char			*data;
-	int				fd;
-	struct s_gnl	*next;
-}					t_gnl_list;
+	int		i;
+	int		*ret;
 
-int					get_next_line_multi(const int fd, char **line);
-int					get_next_line_one_file(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (str[i] != 0)
+		i++;
+	if (!(ret = malloc(sizeof(int) * i + 1)))
+		return (NULL);
+	i = 0;
+	while (str[i] != 0)
+	{
+		ret[i] = str[i];
+		i++;
+	}
+	ret[i] = 0;
+	return (ret);
+}

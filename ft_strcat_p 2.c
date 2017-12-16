@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcat_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnardozi <pnardozi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 13:40:50 by pnardozi          #+#    #+#             */
-/*   Updated: 2017/12/15 11:24:14 by pnardozi         ###   ########.fr       */
+/*   Created: 2017/11/27 14:51:53 by pnardozi          #+#    #+#             */
+/*   Updated: 2017/11/27 14:51:54 by pnardozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# define BUFF_SIZE 32
-# include "libft.h"
-
-#
-
-typedef	struct		s_gnl
+char	*ft_strcat_p(char *dest, const char *src)
 {
-	char			*data;
-	int				fd;
-	struct s_gnl	*next;
-}					t_gnl_list;
+	int	dest_length;
+	int i;
 
-int					get_next_line_multi(const int fd, char **line);
-int					get_next_line_one_file(const int fd, char **line);
-
-#endif
+	dest_length = 0;
+	i = 0;
+	if (dest && src)
+	{
+		while (dest[dest_length] != '\0')
+			dest_length++;
+		while (src[i] != '\0')
+		{
+			dest[dest_length + i] = src[i];
+			i++;
+		}
+		dest[dest_length + i] = '\0';
+		return (dest);
+	}
+	return (NULL);
+}

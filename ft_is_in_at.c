@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_is_in.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnardozi <pnardozi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 13:40:50 by pnardozi          #+#    #+#             */
-/*   Updated: 2017/12/15 11:24:14 by pnardozi         ###   ########.fr       */
+/*   Created: 2017/12/15 14:31:44 by pnardozi          #+#    #+#             */
+/*   Updated: 2017/12/15 14:34:45 by pnardozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# define BUFF_SIZE 32
-# include "libft.h"
-
-#
-
-typedef	struct		s_gnl
+int			ft_is_in_at(char *str, char c, int length)
 {
-	char			*data;
-	int				fd;
-	struct s_gnl	*next;
-}					t_gnl_list;
+	int i;
 
-int					get_next_line_multi(const int fd, char **line);
-int					get_next_line_one_file(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (i < length)
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}

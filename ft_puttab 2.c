@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_puttab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnardozi <pnardozi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 13:40:50 by pnardozi          #+#    #+#             */
-/*   Updated: 2017/12/15 11:24:14 by pnardozi         ###   ########.fr       */
+/*   Created: 2017/12/15 11:40:35 by pnardozi          #+#    #+#             */
+/*   Updated: 2017/12/15 11:40:37 by pnardozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# define BUFF_SIZE 32
-# include "libft.h"
-
-#
-
-typedef	struct		s_gnl
+void	ft_puttab(char **s)
 {
-	char			*data;
-	int				fd;
-	struct s_gnl	*next;
-}					t_gnl_list;
+	int		i;
 
-int					get_next_line_multi(const int fd, char **line);
-int					get_next_line_one_file(const int fd, char **line);
-
-#endif
+	i = 0;
+	if (s)
+	{
+		while (s[i] != NULL)
+		{
+			ft_putendl(s[i]);
+			i++;
+		}
+	}
+}

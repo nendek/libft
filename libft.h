@@ -28,9 +28,11 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int				ft_eol(char *str);
+int				ft_is_in_pos(char const *s, int c);
 char				*ft_itoc(int *str);
 int					ft_count_var(long long var);
-int					ft_is_in(char *str, char c);
+int					ft_is_in_at(char *str, char c, int lentgth);
 int					*ft_strdupw(int *str);
 int					*ft_wctoi(wchar_t *str);
 int					ft_count_unsigned_var(unsigned long int var);

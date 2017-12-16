@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putlong.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnardozi <pnardozi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 13:40:50 by pnardozi          #+#    #+#             */
-/*   Updated: 2017/12/15 11:24:14 by pnardozi         ###   ########.fr       */
+/*   Created: 2017/12/15 11:39:46 by pnardozi          #+#    #+#             */
+/*   Updated: 2017/12/15 11:39:47 by pnardozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# define BUFF_SIZE 32
-# include "libft.h"
-
-#
-
-typedef	struct		s_gnl
+void	ft_putlong(long long n)
 {
-	char			*data;
-	int				fd;
-	struct s_gnl	*next;
-}					t_gnl_list;
-
-int					get_next_line_multi(const int fd, char **line);
-int					get_next_line_one_file(const int fd, char **line);
-
-#endif
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n *= -1;
+	}
+	if (n < 10)
+		ft_putchar(n + '0');
+	else
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+}
