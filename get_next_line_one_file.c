@@ -20,7 +20,7 @@ int	get_next_line_one_file(const int fd, char **line)
 	int		end;
 	
 	end = 1;
-	while (!(ft_eol(save)) && end != 0)
+	while (!(ft_eol(save)) && end > 0)
 	{
 		buf = ft_strnew(BUFF_SIZE);
 		end = read(fd, buf, BUFF_SIZE);
